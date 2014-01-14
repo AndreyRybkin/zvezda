@@ -1,0 +1,29 @@
+% layout 'default';
+% title 'Operations Console';
+<div class="row">
+	<h1>Operations Console</h2>
+	<div class="span6">
+	<h2>Watched Peers</h2>
+	<table id="watched_peers">
+		<thead>
+			<tr>
+				<th>Peer Name</th>
+				<th>Event Time</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+</div>
+<div class="row">
+	<div class="span6">
+		<h2>Debug</h2>	
+		<textarea id="debug"></textarea>
+		<script src="/assets/js/console.js"></script>
+	</div>
+</div>

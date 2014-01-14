@@ -1,4 +1,7 @@
-zvezda
-======
+Zvezda Engine
+=============
 
-Middleware application interface for Asterisk
+A middleware application interface for Asterisk
+
+
+I am currently re-developing / organizing things

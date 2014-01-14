@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+	<head><title>Nibiru</title></head>
+	<body>
+	<script>
+        var events = new EventSource('<%= url_for 'events' %>');
+        // Subscribe to "Cdr" event
+        events.addEventListener('Cdr', function(event) {
+          document.body.innerHTML += event.data + '<br/>';
+        }, false);
+	</script>
+<p>Welcome....Raw AMI events to follow<br /></p>
+
+</body>
+</html>

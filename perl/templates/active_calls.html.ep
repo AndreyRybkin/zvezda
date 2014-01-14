@@ -1,0 +1,33 @@
+% layout 'default';
+% title 'Active Calls';
+<div class="row">
+	<div class="span12">
+	<%= include 'messages' %>
+	<script>
+        var events = new EventSource('<%= url_for 'events' %>');
+        // Subscribe to "new_calls" event
+        events.addEventListener('Dial', function(event) {
+          var dial = document.getElementById('dial');
+					dial.innerHTML += event.data + '<br/>';	
+				}, false);
+				
+				events.addEventListener('Newexten', function(event) {
+					var pbx = document.getElementById('pbx');
+					pbx.innerHTML += event.data + '<br/>';
+				}, false);
+				
+				events.addEventListener('Cdr', function(event) {
+					var pbx = document.getElementById('cdr');
+					pbx.innerHTML += event.data + '<br/>';
+				}, false);			
+	</script>
+	<p>Welcome....AMI events to follow<br /></p>
+
+	<div id="dial"></div>
+	<hr/>
+	<div id="pbx"></div>
+	<hr/>
+	<div id="cdr"></div>
+	<hr/>
+	</div>
+</div>	

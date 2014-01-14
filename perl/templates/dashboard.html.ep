@@ -1,0 +1,27 @@
+% layout 'default';
+% title 'Yahoo! Asterisk - Dashboard';
+<div class="row">
+	<div class="span6">		
+		<p>
+			<h2>System Summary</h2>
+			<b>Uptime:</b> <span id="uptime">NaN</span><br/>
+			<b>Active Calls:</b> <span id="active_calls">NaN</span><br/>
+			<b>Registered Phones:</b> <span id="registered_phones">NaN</span><br/>
+			<b>Dead Phones:</b> <span id="dead_phones">NaN</span><br/>
+		</p>
+		<p>
+			<h2>Site Notes</h2>
+			<div class="well">
+				<b>System Location</b>
+				[STUB]
+			</div>
+		</p>
+	</div>
+	<div class="span6">
+			<ul class="thumbnails">
+		  <li class="span3">
+		    <img class="thumbnail" src="/assets/img/asterisk.lab.jpg" alt="">
+		  </li>
+		</ul>
+	</div>
+</div>

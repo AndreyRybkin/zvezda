@@ -1,0 +1,67 @@
+#!/bin/sh
+# zvezda    Starts, Stops and Reloads zvezda.
+#
+# chkconfig: 2345 90 60
+# description: Middleware between Asterisk and the real-world
+# processname: zvezda.pl
+# pidfile: /tmp/zvezda.pid
+#
+
+# User to run as
+USER=www-data
+
+# Installation directory
+SBIN=/home/www-data/zvezda
+
+# Change working directory
+cd $SBIN
+
+if ! [ -x bin/zvezda.pl ] ; then
+  echo "ERROR: bin/zvezda.pl not found"
+  exit 0
+fi
+
+# Source function library.
+. /etc/rc.d/init.d/functions
+
+# Path to App startup script
+APP=bin/zvezda.pl
+RETVAL=0
+
+start() {
+  # Start daemon
+  echo -n $"Starting zvezda: "
+  su -c 'source ~/perl5/perlbrew/etc/bashrc && cd zvezda && hypnotoad ./bin/zvezda.pl' -s/bin/bash - $USER
+  RETVAL=$?
+  echo
+}
+
+stop() {
+  # Stop daemon
+  echo -n $"Shutting down zvezda: "
+  kill `cat /tmp/zvezda.pid`
+  RETVAL=$?  
+  echo
+}
+
+restart() {
+  stop
+  start
+}
+
+# See how we were called.
+case "$1" in
+  start)
+	start
+	;;
+  stop)
+	stop
+	;;
+  restart)
+	restart
+	;;
+  *)
+  echo "Usage: zvezda {start|stop|restart}"
+  exit 1
+esac
+exit $?
